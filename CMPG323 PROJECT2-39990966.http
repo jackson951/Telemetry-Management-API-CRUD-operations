@@ -1,0 +1,6 @@
+@CMPG323_PROJECT2_39990966_HostAddress = http://localhost:5141
+
+GET {{CMPG323_PROJECT2_39990966_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
