@@ -32,4 +32,4 @@ Changes made will be shown regularly on the README
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.I will further update
+This project is licensed under the MIT License. See the LICENSE file for more details.
