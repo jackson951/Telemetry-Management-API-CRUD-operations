@@ -1,0 +1,108 @@
+USE [master]
+GO
+
+CREATE DATABASE [NWUTechTrends];
+
+USE [NWUTechTrends]
+GO
+
+CREATE SCHEMA Config
+GO
+
+/* Client */
+CREATE TABLE [Config].[Client](
+	[ClientID] [uniqueidentifier] NOT NULL,
+	[ClientName] [nvarchar](max) NULL,
+	[PrimaryContactEmail] [nvarchar](max) NULL,
+	[DateOnboarded] [datetime] NULL,
+ CONSTRAINT [PK_Client] PRIMARY KEY CLUSTERED 
+(
+	[ClientID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+/* Project */
+CREATE TABLE [Config].[Project](
+	[ProjectID] [uniqueidentifier] NOT NULL,
+	[ProjectName] [varchar](255) NULL,
+	[ProjectDescription] [varchar](255) NULL,
+	[ProjectCreationDate] [datetime] NULL,
+	[ProjectStatus] [varchar](255) NULL,
+	[ClientID] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_Project] PRIMARY KEY CLUSTERED 
+(
+	[ProjectID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [Config].[Project] ADD  CONSTRAINT [DF_Project_ProjectID]  DEFAULT (newid()) FOR [ProjectID]
+GO
+
+ALTER TABLE [Config].[Project] ADD  CONSTRAINT [DF_Project_ProjectCreationDate]  DEFAULT (dateadd(hour,(2),getdate())) FOR [ProjectCreationDate]
+GO
+
+/* Process */
+CREATE TABLE [Config].[Process](
+	[ProcessID] [uniqueidentifier] NOT NULL,
+	[ProcessName] [varchar](max) NOT NULL,
+	[ProcessType] [varchar](max) NOT NULL,
+	[IsFramework] [bit] NOT NULL,
+	[RequiresDefaultConfig] [bit] NOT NULL,
+	[Submitter] [varchar](max) NOT NULL,
+	[DateSubmitted] [datetime] NOT NULL,
+	[ProcessConfigURL] [varchar](max) NULL,
+	[ReportURL] [varchar](max) NULL,
+	[ProjectID] [uniqueidentifier] NULL,
+	[DefaultGeography] [varchar](255) NULL,
+	[DefaultBusinessFunction] [varchar](255) NULL,
+	[Platform] [varchar](255) NULL,
+ CONSTRAINT [PK_Process] PRIMARY KEY CLUSTERED 
+(
+	[ProcessID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [Config].[Process] ADD  CONSTRAINT [DF_Process_ProcessID]  DEFAULT (newid()) FOR [ProcessID]
+GO
+
+ALTER TABLE [Config].[Process] ADD  CONSTRAINT [DF_Process_DateSubmitted]  DEFAULT (getdate()) FOR [DateSubmitted]
+GO
+
+ALTER TABLE [Config].[Process] ADD  CONSTRAINT [DF_Process_DefaultGeography]  DEFAULT ('Global') FOR [DefaultGeography]
+GO
+
+ALTER TABLE [Config].[Process] ADD  CONSTRAINT [DF_Process_DefaultBusinessFunction]  DEFAULT ('Unspecified') FOR [DefaultBusinessFunction]
+GO
+
+CREATE SCHEMA Telemetry
+GO
+
+CREATE TABLE [Telemetry].[JobTelemetry](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ProccesID] [varchar](50) NULL,
+	[JobID] [varchar](50) NULL,
+	[QueueID] [varchar](max) NULL,
+	[StepDescription] [varchar](max) NULL,
+	[HumanTime] [int] NULL,
+	[UniqueReference] [varchar](max) NULL,
+	[UniqueReferenceType] [varchar](max) NULL,
+	[BusinessFunction] [varchar](max) NULL,
+	[Geography] [varchar](max) NULL,
+	[ExcludeFromTimeSaving] [bit] NULL,
+	[AdditionalInfo] [varchar](max) NULL,
+	[EntryDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_JobTelemetry] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [Telemetry].[JobTelemetry] ADD  CONSTRAINT [DF_JobTelemetry_ExcludeFromTimeSaving]  DEFAULT ((0)) FOR [ExcludeFromTimeSaving]
+GO
+
+ALTER TABLE [Telemetry].[JobTelemetry] ADD  CONSTRAINT [DF_JobTelemetry_EntryDate]  DEFAULT (getdate()) FOR [EntryDate]
+GO
