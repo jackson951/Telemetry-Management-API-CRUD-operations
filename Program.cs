@@ -1,9 +1,16 @@
+using CMPG323_PROJECT2_39990966.Data; // Replace with your actual namespace
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllersWithViews();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Correctly register the DbContext
+builder.Services.AddDbContext<TelemetryDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TelemetryDatabase")));
+
+// Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -21,6 +28,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
 
 app.Run();
