@@ -7,7 +7,9 @@ namespace CMPG323_PROJECT2_39990966.Models
         {
             
         }
-
-        public DbSet<WeatherForecast> WeatherForecasts { get; set; };
+        /// <summary>
+        /// 
+        /// </summary>
+        public DbSet<WeatherForecast> WeatherForecasts { get; set; }
     }
 }
