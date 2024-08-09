@@ -96,7 +96,7 @@ namespace CMPG323_PROJECT2_39990966.Controllers
             return NoContent();
         }
 
-        
+
 
         // Private method to check if telemetry exists
         private bool TelemetryExists(int id)
