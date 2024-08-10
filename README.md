@@ -40,11 +40,20 @@ This project is designed to help NWU Tech Trends track and manage the time and c
 - Authentication is set up to restrict access.
 - No credentials are stored on GitHub.
 
+
 ## Usage
 
-- To log a new telemetry entry, send a POST request with the required data.
-- Use GET requests to retrieve telemetry data for analysis.
-- Update or delete entries as necessary using PATCH or DELETE requests.
+1. **Access the API:**
+   - Use a tool like Postman to send requests to the API endpoints.
+
+2. **Interact with Telemetry Data:**
+   - Retrieve data: Use GET requests to view telemetry entries.
+   - Create data: Use POST requests to add new entries.
+   - Update data: Use PATCH requests to modify entries.
+   - Delete data: Use DELETE requests to remove entries.
+
+3. **Analyze Savings:**
+   - Use the `/GetSavingsByProject` and `/GetSavingsByClient` endpoints to generate reports.
 
 ## Contribution
 
