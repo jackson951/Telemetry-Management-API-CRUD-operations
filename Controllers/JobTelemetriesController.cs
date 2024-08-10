@@ -107,59 +107,32 @@ namespace CMPG323_PROJECT2_39990966.Controllers
 
         // GET: api/Telemetry/GetSavingsByProject
         [HttpGet("GetSavingsByProject")]
-        public async Task<ActionResult<SavingsResult>> GetSavingsByProject(
-            [FromQuery] Guid projectId,
-            [FromQuery] DateTime startDate,
-            [FromQuery] DateTime endDate)
+        public async Task<IActionResult> GetSavingsByProject(Guid projectId, DateTime startDate, DateTime endDate)
         {
-            try
+            // Step 1: Retrieve related JobTelemetry records filtered by ProjectId and Date Range
+            var jobTelemetries = await (from jt in _context.JobTelemetries
+                                        join p in _context.Processes on jt.ProccesId equals p.ProcessId.ToString()
+                                        where p.ProjectId == projectId &&
+                                              jt.EntryDate >= startDate &&
+                                              jt.EntryDate <= endDate
+                                        select jt).ToListAsync();
+
+            // Step 2: Calculate cumulative time savings
+            var totalTimeSaved = jobTelemetries.Sum(jt => jt.HumanTime) ?? 0;
+
+            // Step 3: Assume a cost saving rate per time unit (example: $50 per unit of time)
+            const decimal costSavingRate = 50m;
+            var totalCostSaved = totalTimeSaved * costSavingRate;
+
+            // Step 4: Return the results
+            var result = new
             {
-                // Validate date range
-                if (startDate > endDate)
-                {
-                    return BadRequest("Start date cannot be after end date.");
-                }
+                ProjectId = projectId,
+                TotalTimeSaved = totalTimeSaved,
+                TotalCostSaved = totalCostSaved
+            };
 
-                // Retrieve Process IDs for the specified project
-                var processIds = await _context.Processes
-                    .Where(p => p.ProjectId == projectId)
-                    .Select(p => p.ProcessId)
-                    .ToListAsync();
-
-                // Check if processes are found
-                if (!processIds.Any())
-                {
-                    return NotFound("No processes found for the specified project.");
-                }
-
-                // Retrieve JobTelemetry entries based on Process IDs and date range
-                var telemetryEntries = await _context.JobTelemetries
-                    .Where(t => !string.IsNullOrEmpty(t.ProccesId) && processIds.Contains(Guid.Parse(t.ProccesId))
-                            && t.EntryDate >= startDate
-                            && t.EntryDate <= endDate)
-                    .ToListAsync();
-
-                // Check if telemetry entries are found
-                if (!telemetryEntries.Any())
-                {
-                    return NotFound("No telemetry entries found for the specified project and date range.");
-                }
-
-                // Calculate total human time and cost saved
-                var totalHumanTime = telemetryEntries.Sum(t => t.HumanTime ?? 0);
-                var totalCostSaved = CalculateCostSaved(telemetryEntries);
-
-                return Ok(new SavingsResult
-                {
-                    TotalHumanTime = totalHumanTime,
-                    TotalCostSaved = totalCostSaved
-                });
-            }
-            catch (Exception ex)
-            {
-                
-                return StatusCode(500, "An error occurred while calculating savings.");
-            }
+            return Ok(result);
         }
 
 
@@ -172,8 +145,36 @@ namespace CMPG323_PROJECT2_39990966.Controllers
 
 
 
+        // GET: api/Telemetry/GetSavings
+        [HttpGet("GetSavingsByClient")]
+        public async Task<IActionResult> GetSavingsByClient(Guid clientId, DateTime startDate, DateTime endDate)
+        {
+            // Step 1: Retrieve related JobTelemetry records filtered by ClientId and Date Range
+            var jobTelemetries = await (from jt in _context.JobTelemetries
+                                        join p in _context.Processes on jt.ProccesId equals p.ProcessId.ToString()
+                                        join pr in _context.Projects on p.ProjectId equals pr.ProjectId
+                                        where pr.ClientId == clientId &&
+                                              jt.EntryDate >= startDate &&
+                                              jt.EntryDate <= endDate
+                                        select jt).ToListAsync();
 
+            // Step 2: Calculate cumulative time savings
+            var totalTimeSaved = jobTelemetries.Sum(jt => jt.HumanTime) ?? 0;
 
+            // Step 3: Assume a cost saving rate per time unit (example: $50 per unit of time)
+            const decimal costSavingRate = 50m;
+            var totalCostSaved = totalTimeSaved * costSavingRate;
+
+            // Step 4: Return the results
+            var result = new
+            {
+                ClientId = clientId,
+                TotalTimeSaved = totalTimeSaved,
+                TotalCostSaved = totalCostSaved
+            };
+
+            return Ok(result);
+        }
     }
 
 
