@@ -9,6 +9,8 @@ public partial class JobTelemetry
 
     public string? ProccesId { get; set; }
 
+    //public virtual Process? Process { get; set; } // Corrected navigation property//changes to be made
+
     public string? JobId { get; set; }
 
     public string? QueueId { get; set; }

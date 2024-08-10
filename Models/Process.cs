@@ -30,4 +30,5 @@ public partial class Process
     public string? DefaultBusinessFunction { get; set; }
 
     public string? Platform { get; set; }
+    
 }

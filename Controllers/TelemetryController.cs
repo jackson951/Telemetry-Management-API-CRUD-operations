@@ -103,12 +103,92 @@ namespace CMPG323_PROJECT2_39990966.Controllers
         {
             return _context.JobTelemetries.Any(e => e.Id == id);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // GET: api/Telemetry/GetSavingsByProject
+        [HttpGet("GetSavingsByProject")]
+        public async Task<ActionResult<SavingsResult>> GetSavingsByProject(
+            [FromQuery] Guid projectId,
+            [FromQuery] DateTime startDate,
+            [FromQuery] DateTime endDate)
+        {
+            // Validate date range
+            if (startDate > endDate)
+            {
+                return BadRequest("Start date cannot be after end date.");
+            }
+
+            // Retrieve Process IDs for the given ProjectId
+            var processIds = await _context.Processes
+                .Where(p => p.ProjectId == projectId)
+                .Select(p => p.ProcessId)
+                .ToListAsync();
+
+            // Check if there are any processes for the given project
+            if (!processIds.Any())
+            {
+                return NotFound("No processes found for the specified project.");
+            }
+
+            // Retrieve JobTelemetry entries based on Process IDs and date range
+            var telemetryEntries = await _context.JobTelemetries
+                .Where(t => processIds.Contains(Guid.Parse(t.ProccesId ?? string.Empty))
+                            && t.EntryDate >= startDate
+                            && t.EntryDate <= endDate)
+                .ToListAsync();
+
+            // Check if there are any telemetry entries for the given parameters
+            if (!telemetryEntries.Any())
+            {
+                return NotFound("No telemetry entries found for the specified project and date range.");
+            }
+
+            // Calculate total human time and cost saved
+            var totalHumanTime = telemetryEntries.Sum(t => t.HumanTime ?? 0);
+            var totalCostSaved = CalculateCostSaved(telemetryEntries);
+
+            return Ok(new SavingsResult
+            {
+                TotalHumanTime = totalHumanTime,
+                TotalCostSaved = totalCostSaved
+            });
+        }
+
+        // Helper method to calculate cost saved
+        private decimal CalculateCostSaved(IEnumerable<JobTelemetry> telemetryEntries)
+        {
+            // Example calculation logic, modify as needed
+            return telemetryEntries.Sum(t => (decimal)(t.HumanTime ?? 0) * 0.5m); // Replace with actual cost calculation
+        }
+
+
+
+
+
     }
 
-    // Define SavingsDto
-    public class SavingsDto
+
+
+
+    // Define SavingsResult
+    public class SavingsResult
     {
-        public int TotalTimeSaved { get; set; }
+        public int TotalHumanTime { get; set; }
         public decimal TotalCostSaved { get; set; }
     }
+
+
 }
