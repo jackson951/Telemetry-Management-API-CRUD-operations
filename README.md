@@ -55,10 +55,8 @@ This project is designed to help NWU Tech Trends track and manage the time and c
 3. **Analyze Savings:**
    - Use the `/GetSavingsByProject` and `/GetSavingsByClient` endpoints to generate reports.
 
-## Contribution
+##Reference List
 
-Changes made will be shown regularly on the README
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
+1. Microsoft. (2023). Microsoft Azure Documentation. Available at: https://learn.microsoft.com/en-us/azure/ [Accessed 8 Aug. 2024].
+2. Microsoft. (2023). ASP.NET Core Documentation. Available at: https://learn.microsoft.com/en-us/aspnet/core/ [Accessed 7 Aug. 2024].
+3. W3Schools. (2023). SQL Tutorial. Available at: https://www.w3schools.com/sql/ [Accessed 8 Aug. 2024].
