@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project implements a CRUD RESTful API for managing telemetry data related to automation executions at NWU Tech Trends. The API allows users to track time savings associated with automation, grouped by project and client.
+This project is designed to help NWU Tech Trends track and manage the time and cost savings achieved through automation solutions. By developing a CRUD RESTful API, the system will manage telemetry data, providing insights into savings grouped by project and client. This API will facilitate efficient data handling and reporting, ensuring stakeholders can easily access and analyze the impact of automation.
 
 ## Features
 
