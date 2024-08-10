@@ -167,8 +167,8 @@ namespace CMPG323_PROJECT2_39990966.Controllers
         // Helper method to calculate cost saved
         private decimal CalculateCostSaved(IEnumerable<JobTelemetry> telemetryEntries)
         {
-            // Example calculation logic, modify as needed
-            return telemetryEntries.Sum(t => (decimal)(t.HumanTime ?? 0) * 0.5m); // Replace with actual cost calculation
+            
+            return telemetryEntries.Sum(t => (decimal)(t.HumanTime ?? 0) * 0.5m); 
         }
 
 
