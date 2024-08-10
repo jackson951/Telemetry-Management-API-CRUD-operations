@@ -55,7 +55,7 @@ This project is designed to help NWU Tech Trends track and manage the time and c
 3. **Analyze Savings:**
    - Use the `/GetSavingsByProject` and `/GetSavingsByClient` endpoints to generate reports.
 
-##Reference List
+## Reference List
 
 1. Microsoft. (2023). Microsoft Azure Documentation. Available at: https://learn.microsoft.com/en-us/azure/ [Accessed 8 Aug. 2024].
 2. Microsoft. (2023). ASP.NET Core Documentation. Available at: https://learn.microsoft.com/en-us/aspnet/core/ [Accessed 7 Aug. 2024].
