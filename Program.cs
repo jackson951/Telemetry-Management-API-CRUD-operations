@@ -1,16 +1,18 @@
 // Replace with your actual namespace
 using CMPG323_PROJECT2_39990966.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<NWUTechTrendsContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TelemetryDbContext")));
 
 // Correctly register the DbContext
+
+builder.Services.AddDbContext<NWUTechTrendsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TelemetryDbContext")));
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
