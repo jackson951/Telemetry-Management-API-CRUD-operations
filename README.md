@@ -14,11 +14,26 @@ This project implements a CRUD RESTful API for managing telemetry data related t
 
 ## API Endpoints
 
-- **GET** `/api/telemetry` - Retrieve all telemetry entries
-- **GET** `/api/telemetry/{id}` - Retrieve a telemetry entry by ID
-- **POST** `/api/telemetry` - Create a new telemetry entry
-- **PATCH** `/api/telemetry/{id}` - Update an existing telemetry entry
-- **DELETE** `/api/telemetry/{id}` - Delete a telemetry entry
+- **GET /api/telemetry**
+  - Retrieves all telemetry entries.
+
+- **GET /api/telemetry/{id}**
+  - Retrieves a specific telemetry entry by ID.
+
+- **POST /api/telemetry**
+  - Creates a new telemetry entry.
+
+- **PATCH /api/telemetry/{id}**
+  - Updates an existing telemetry entry.
+
+- **DELETE /api/telemetry/{id}**
+  - Deletes a telemetry entry.
+
+- **GET /api/telemetry/GetSavingsByProject**
+  - Retrieves cumulative time and cost savings by project, filtered by Project ID and date range.
+
+- **GET /api/telemetry/GetSavingsByClient**
+  - Retrieves cumulative time and cost savings by client, filtered by Client ID and date range.
 
 ## Usage
 
