@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project implements a CRUD RESTful API for managing telemetry data related to automation executions at NWU Tech Trends. The API allows users to track time savings associated with automation, grouped by project and client.
+This project is designed to help NWU Tech Trends track and manage the time and cost savings achieved through automation solutions. By developing a CRUD RESTful API, the system will manage telemetry data, providing insights into savings grouped by project and client. This API will facilitate efficient data handling and reporting, ensuring stakeholders can easily access and analyze the impact of automation.
 
 ## Features
 
@@ -14,22 +14,49 @@ This project implements a CRUD RESTful API for managing telemetry data related t
 
 ## API Endpoints
 
-- **GET** `/api/telemetry` - Retrieve all telemetry entries
-- **GET** `/api/telemetry/{id}` - Retrieve a telemetry entry by ID
-- **POST** `/api/telemetry` - Create a new telemetry entry
-- **PATCH** `/api/telemetry/{id}` - Update an existing telemetry entry
-- **DELETE** `/api/telemetry/{id}` - Delete a telemetry entry
+- **GET /api/telemetry**
+  - Retrieves all telemetry entries.
+
+- **GET /api/telemetry/{id}**
+  - Retrieves a specific telemetry entry by ID.
+
+- **POST /api/telemetry**
+  - Creates a new telemetry entry.
+
+- **PATCH /api/telemetry/{id}**
+  - Updates an existing telemetry entry.
+
+- **DELETE /api/telemetry/{id}**
+  - Deletes a telemetry entry.
+
+- **GET /api/telemetry/GetSavingsByProject**
+  - Retrieves cumulative time and cost savings by project, filtered by Project ID and date range.
+
+- **GET /api/telemetry/GetSavingsByClient**
+  - Retrieves cumulative time and cost savings by client, filtered by Client ID and date range.
+
+## Security
+
+- Authentication is set up to restrict access.
+- No credentials are stored on GitHub.
+
 
 ## Usage
 
-- To log a new telemetry entry, send a POST request with the required data.
-- Use GET requests to retrieve telemetry data for analysis.
-- Update or delete entries as necessary using PATCH or DELETE requests.
+1. **Access the API:**
+   - Use a tool like Postman to send requests to the API endpoints.
 
-## Contribution
+2. **Interact with Telemetry Data:**
+   - Retrieve data: Use GET requests to view telemetry entries.
+   - Create data: Use POST requests to add new entries.
+   - Update data: Use PATCH requests to modify entries.
+   - Delete data: Use DELETE requests to remove entries.
 
-Changes made will be shown regularly on the README
+3. **Analyze Savings:**
+   - Use the `/GetSavingsByProject` and `/GetSavingsByClient` endpoints to generate reports.
 
-## License
+## Reference List
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+1. Microsoft. (2023). Microsoft Azure Documentation. Available at: https://learn.microsoft.com/en-us/azure/ [Accessed 8 Aug. 2024].
+2. Microsoft. (2023). ASP.NET Core Documentation. Available at: https://learn.microsoft.com/en-us/aspnet/core/ [Accessed 7 Aug. 2024].
+3. W3Schools. (2023). SQL Tutorial. Available at: https://www.w3schools.com/sql/ [Accessed 8 Aug. 2024].
