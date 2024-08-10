@@ -35,6 +35,11 @@ This project is designed to help NWU Tech Trends track and manage the time and c
 - **GET /api/telemetry/GetSavingsByClient**
   - Retrieves cumulative time and cost savings by client, filtered by Client ID and date range.
 
+## Security
+
+- Authentication is set up to restrict access.
+- No credentials are stored on GitHub.
+
 ## Usage
 
 - To log a new telemetry entry, send a POST request with the required data.
