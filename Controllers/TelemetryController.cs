@@ -105,19 +105,6 @@ namespace CMPG323_PROJECT2_39990966.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         // GET: api/Telemetry/GetSavingsByProject
         [HttpGet("GetSavingsByProject")]
         public async Task<ActionResult<SavingsResult>> GetSavingsByProject(
