@@ -5,12 +5,14 @@
 
 This project is designed to help NWU Tech Trends track and manage the time and cost savings achieved through automation solutions. By developing a CRUD RESTful API, the system will manage telemetry data, providing insights into savings grouped by project and client. This API will facilitate efficient data handling and reporting, ensuring stakeholders can easily access and analyze the impact of automation.
 
+
 ## Features
 
 - **Create**: Log new telemetry entries.
 - **Read**: Retrieve all telemetry entries or a specific entry by ID.
 - **Update**: Modify existing telemetry entries.
 - **Delete**: Remove telemetry entries from the database.
+
 
 ## API Endpoints
 
@@ -34,11 +36,33 @@ This project is designed to help NWU Tech Trends track and manage the time and c
 
 - **GET /api/telemetry/GetSavingsByClient**
   - Retrieves cumulative time and cost savings by client, filtered by Client ID and date range.
+    
 
 ## Security
 
 - Authentication is set up to restrict access.
 - No credentials are stored on GitHub.
+  
+
+
+## Postman API Testing for NWU Tech Trends Management System
+
+In the development of the NWU Tech Trends Management System, Postman was instrumental in testing and validating the functionality of the API endpoints. Postman provided a user-friendly interface to send various HTTP requests and analyze the responses, ensuring that the API behaved as expected and met the project requirements effectively.
+
+1. **Endpoint Testing**: Utilized Postman to send GET, POST, PATCH, and DELETE requests to different API endpoints to verify data retrieval, creation, updating, and deletion operations.
+
+2. **Parameter Testing**: Tested API endpoints with different parameters to assess how the API handled various input scenarios.
+
+3. **Response Validation**: Checked the responses received from the API against expected results to ensure the correctness of data returned.
+
+4. **Authentication Testing**: Tested authentication mechanisms by including tokens or credentials in requests to authenticate and access protected endpoints.
+
+5. **Error Handling Testing**: Sent invalid requests to test the API's error-handling capabilities and verified that appropriate error responses were returned.
+
+Postman's features, such as collections, environments, and scripts, were utilized to streamline the testing process and maintain test suites for regression testing. The detailed test cases and results were organized within Postman, providing a comprehensive overview of the API's behavior during development.
+
+By leveraging Postman for API testing, the NWU Tech Trends Management System's API was thoroughly validated, ensuring reliability and functionality before deployment.
+
 
 
 ## Usage
@@ -54,6 +78,7 @@ This project is designed to help NWU Tech Trends track and manage the time and c
 
 3. **Analyze Savings:**
    - Use the `/GetSavingsByProject` and `/GetSavingsByClient` endpoints to generate reports.
+     
 
 ## Reference List
 
