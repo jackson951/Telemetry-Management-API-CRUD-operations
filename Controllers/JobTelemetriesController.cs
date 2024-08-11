@@ -125,9 +125,8 @@ namespace CMPG323_PROJECT2_39990966.Controllers
             var totalCostSaved = totalTimeSaved * costSavingRate;
 
             // Step 4: Return the results
-            var result = new
+            var result = new SavingsResult
             {
-                ProjectId = projectId,
                 TotalTimeSaved = totalTimeSaved,
                 TotalCostSaved = totalCostSaved
             };
@@ -166,9 +165,8 @@ namespace CMPG323_PROJECT2_39990966.Controllers
             var totalCostSaved = totalTimeSaved * costSavingRate;
 
             // Step 4: Return the results
-            var result = new
+            var result = new SavingsResult
             {
-                ClientId = clientId,
                 TotalTimeSaved = totalTimeSaved,
                 TotalCostSaved = totalCostSaved
             };
