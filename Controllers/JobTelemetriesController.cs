@@ -1,4 +1,5 @@
 ﻿using CMPG323_PROJECT2_39990966.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
