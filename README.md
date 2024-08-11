@@ -85,3 +85,4 @@ By leveraging Postman for API testing, the NWU Tech Trends Management System's A
 1. Microsoft. (2023). Microsoft Azure Documentation. Available at: https://learn.microsoft.com/en-us/azure/ [Accessed 8 Aug. 2024].
 2. Microsoft. (2023). ASP.NET Core Documentation. Available at: https://learn.microsoft.com/en-us/aspnet/core/ [Accessed 7 Aug. 2024].
 3. W3Schools. (2023). SQL Tutorial. Available at: https://www.w3schools.com/sql/ [Accessed 8 Aug. 2024].
+4. Microsoft Learn. (2024). Use Identity to secure a Web API backend for SPAs. Microsoft Learn. https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-api-authorization?view=aspnetcore-8.0&viewFallbackFrom=aspnetcore-8.0%2F%2Fwrite
