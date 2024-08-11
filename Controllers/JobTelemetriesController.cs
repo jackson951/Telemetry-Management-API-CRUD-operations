@@ -117,6 +117,8 @@ namespace CMPG323_PROJECT2_39990966.Controllers
                                               jt.EntryDate <= endDate
                                         select jt).ToListAsync();
 
+            
+
             // Step 2: Calculate cumulative time savings
             var totalTimeSaved = jobTelemetries.Sum(jt => jt.HumanTime) ?? 0;
 
@@ -125,6 +127,7 @@ namespace CMPG323_PROJECT2_39990966.Controllers
             var totalCostSaved = totalTimeSaved * costSavingRate;
 
             // Step 4: Return the results
+            //method returns zeros if no records are found
             var result = new SavingsResult
             {
                 TotalTimeSaved = totalTimeSaved,
@@ -165,6 +168,7 @@ namespace CMPG323_PROJECT2_39990966.Controllers
             var totalCostSaved = totalTimeSaved * costSavingRate;
 
             // Step 4: Return the results
+            //method returns zeros if no records are found
             var result = new SavingsResult
             {
                 TotalTimeSaved = totalTimeSaved,
