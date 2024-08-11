@@ -123,6 +123,7 @@ namespace CMPG323_PROJECT2_39990966.Controllers
             var totalTimeSaved = jobTelemetries.Sum(jt => jt.HumanTime) ?? 0;
 
             // Step 3: Assume a cost saving rate per time unit (example: $50 per unit of time)
+            //else return zero because no telemetries were found
             const decimal costSavingRate = 50m;
             var totalCostSaved = totalTimeSaved * costSavingRate;
 
@@ -161,6 +162,7 @@ namespace CMPG323_PROJECT2_39990966.Controllers
                                         select jt).ToListAsync();
 
             // Step 2: Calculate cumulative time savings
+            //else return zero because no telemetries were found
             var totalTimeSaved = jobTelemetries.Sum(jt => jt.HumanTime) ?? 0;
 
             // Step 3: Assume a cost saving rate per time unit (example: $50 per unit of time)
