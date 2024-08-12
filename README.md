@@ -4,7 +4,7 @@
 ## Overview
 
 This project is designed to help NWU Tech Trends track and manage the time and cost savings achieved through automation solutions. By developing a CRUD RESTful API, the system will manage telemetry data, providing insights into savings grouped by project and client. This API will facilitate efficient data handling and reporting, ensuring stakeholders can easily access and analyze the impact of automation.
-Here is the link to the API hosted on azure:`https://cmpg323project2-3999096620240810194825.azurewebsites.net`
+**Here is the link to the API hosted on azure:** https://cmpg323project2-3999096620240810194825.azurewebsites.net
 
 
 ## Features
