@@ -110,14 +110,14 @@ Follow these instructions to interact with the REST API using Postman.
 ### 6. Get Savings by Project
 - **Method**: GET
 - **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByProject`
-- **Example**:https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByProject?projectId=12345&startDate=2024-08-01&endDate=2024-08-10
+- **Example**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByProject?projectId=12345&startDate=2024-08-01&endDate=2024-08-10`
 - **Description**: Retrieves savings filtered by Project ID and date range.
 - **Action**: Click "Send".
 
 ### 7. Get Savings by Client
 - **Method**: GET
 - **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByClient`
-- **Example**:https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByClient?clientId=12345&startDate=2024-08-01&endDate=2024-08-10
+- **Example**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByClient?clientId=12345&startDate=2024-08-01&endDate=2024-08-10`
 - **Description**: Retrieves savings filtered by Client ID and date range
 - **Action**: Click "Send".
 
