@@ -71,7 +71,7 @@ Follow these instructions to interact with the REST API using Postman.
 
 ## Setup
 
-1. **Open Postman**: Ensure Postman is installed and running.
+1. **Open Postman**: Ensure Postman is installed and running./Alternatively register an account here and continue:https://www.postman.com/
 2. **Create a New Request**: Click on "New" and select "Request".
 
 ## Endpoints
