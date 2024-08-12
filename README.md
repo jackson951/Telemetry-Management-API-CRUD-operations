@@ -127,7 +127,7 @@ Follow these instructions to interact with the REST API using Postman.
 - **Authentication**: If required, configure it in the "Authorization" tab.
 - **Error Handling**: Check error messages or status codes for troubleshooting.
 
-By following these steps, you can effectively interact with the API using Postman.
+By following these steps, you can effectively interact with the API using Postman.**Data will be shown if only it is in the database hosted on azure.**
      
 
 ## Reference List
