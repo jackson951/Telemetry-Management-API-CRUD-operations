@@ -67,17 +67,65 @@ By leveraging Postman for API testing, the NWU Tech Trends Management System's A
 
 ## Usage
 
-1. **Access the API:**
-   - Use a tool like Postman to send requests to the API endpoints.
+Follow these instructions to interact with the REST API using Postman.
 
-2. **Interact with Telemetry Data:**
-   - Retrieve data: Use GET requests to view telemetry entries.
-   - Create data: Use POST requests to add new entries.
-   - Update data: Use PATCH requests to modify entries.
-   - Delete data: Use DELETE requests to remove entries.
+## Setup
 
-3. **Analyze Savings:**
-   - Use the `/GetSavingsByProject` and `/GetSavingsByClient` endpoints to generate reports.
+1. **Open Postman**: Ensure Postman is installed and running.
+2. **Create a New Request**: Click on "New" and select "Request".
+
+## Endpoints
+
+### 1. Retrieve All Telemetry Entries
+- **Method**: GET
+- **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry`
+- **Description**: Fetches all telemetry entries.
+- **Action**: Click "Send".
+
+### 2. Retrieve Specific Telemetry Entry by ID
+- **Method**: GET
+- **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/{id}`
+- **Description**: Replace `{id}` with the specific entry ID.
+- **Action**: Click "Send".
+
+### 3. Create a New Telemetry Entry
+- **Method**: POST
+- **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry`
+- **Body**: Choose "raw" and "JSON". Enter the JSON data for the new entry.
+- **Action**: Click "Send".
+
+### 4. Update an Existing Telemetry Entry
+- **Method**: PATCH
+- **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/{id}`
+- **Description**: Replace `{id}` with the entry ID you want to update.
+- **Body**: Choose "raw" and "JSON". Enter the updated JSON data.
+- **Action**: Click "Send".
+
+### 5. Delete a Telemetry Entry
+- **Method**: DELETE
+- **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/{id}`
+- **Description**: Replace `{id}` with the entry ID you wish to delete.
+- **Action**: Click "Send".
+
+### 6. Get Savings by Project
+- **Method**: GET
+- **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByProject`
+- **Description**: Retrieves savings filtered by Project ID and date range.
+- **Action**: Click "Send".
+
+### 7. Get Savings by Client
+- **Method**: GET
+- **URL**: `https://cmpg323project2-3999096620240810194825.azurewebsites.net/api/telemetry/GetSavingsByClient`
+- **Description**: Retrieves savings filtered by Client ID and date range.
+- **Action**: Click "Send".
+
+## Additional Tips
+
+- **Headers**: Add necessary headers, such as `Content-Type: application/json`.
+- **Authentication**: If required, configure it in the "Authorization" tab.
+- **Error Handling**: Check error messages or status codes for troubleshooting.
+
+By following these steps, you can effectively interact with the API using Postman.
      
 
 ## Reference List
