@@ -40,7 +40,7 @@ This project is designed to help NWU Tech Trends track and manage the time and c
 
 ## Security
 
-- Authentication is set up to restrict access.
+-Error Handling: Error messages do not reveal sensitive information and are handled in a way that avoids disclosing implementation details.
 - No credentials are stored on GitHub.
   
 
